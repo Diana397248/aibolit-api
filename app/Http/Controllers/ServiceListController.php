@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ServiceListItemResource;
 use App\Models\ServiceList;
 use App\Http\Requests\StoreServiceListRequest;
 use App\Http\Requests\UpdateServiceListRequest;
@@ -13,7 +14,7 @@ class ServiceListController extends Controller
      */
     public function index()
     {
-        //
+        return ServiceListItemResource::collection(ServiceList::all());
     }
 
     /**
