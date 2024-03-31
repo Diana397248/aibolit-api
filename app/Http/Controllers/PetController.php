@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PetResource;
 use App\Models\Pet;
 use App\Http\Requests\StorePetRequest;
 use App\Http\Requests\UpdatePetRequest;
@@ -13,7 +14,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        //
+        return PetResource::collection(Pet::all());
     }
 
     /**
@@ -29,7 +30,12 @@ class PetController extends Controller
      */
     public function store(StorePetRequest $request)
     {
-        //
+        $petForCreate = new Pet();
+        $petForCreate->fill($request->validated());
+        $user = auth('sanctum')->user();
+        $petForCreate->user_id = $user->id;
+        $petForCreate->save();
+        return new PetResource($petForCreate);
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PetController;
 use App\Http\Controllers\ServiceListController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/services', [ServiceListController::class, 'index']);
+
+Route::get('/Pets', [PetController::class, 'index']);
+Route::post('/creatPet', [PetController::class, 'store']);
