@@ -29,6 +29,7 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+//    todo enabled when credential need
+    'supports_credentials' => true,
 
 ];

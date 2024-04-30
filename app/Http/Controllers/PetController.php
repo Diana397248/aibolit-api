@@ -32,8 +32,9 @@ class PetController extends Controller
     {
         $petForCreate = new Pet();
         $petForCreate->fill($request->validated());
-        $user = auth('sanctum')->user();
-        $petForCreate->user_id = $user->id;
+//        $user = auth('sanctum')->user();
+//        $petForCreate->owner_id = $user->id;
+        $petForCreate->owner_id = 1;
         $petForCreate->save();
         return new PetResource($petForCreate);
     }
