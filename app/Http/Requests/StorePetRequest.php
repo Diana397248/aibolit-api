@@ -26,7 +26,7 @@ class StorePetRequest extends FormRequest
             'type' => 'string',
             'species' => 'string',
             'year_birth' => 'string',
-            'img' => 'string',
+            'img' => ['sometimes', 'image:jpg, jpeg, png'],
             'gender' => 'string',
         ];
     }

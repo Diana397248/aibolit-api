@@ -32,11 +32,20 @@ class PetController extends Controller
     {
         $petForCreate = new Pet();
         $petForCreate->fill($request->validated());
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $path = $image->store('public/pets');
+            $petForCreate->img = str_replace("public", "storage", $path);
+        }
+
 //        $user = auth('sanctum')->user();
 //        $petForCreate->owner_id = $user->id;
         $petForCreate->owner_id = 1;
+
         $petForCreate->save();
         return new PetResource($petForCreate);
+
+
     }
 
     /**
