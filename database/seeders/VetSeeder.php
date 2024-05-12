@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Vet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,8 @@ class VetSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Vet::factory()->create([
+            'user_id' => 1,
+            ]);
     }
 }

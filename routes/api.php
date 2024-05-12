@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ServiceListController;
 use Illuminate\Http\Request;
@@ -24,3 +25,6 @@ Route::get('/services', [ServiceListController::class, 'index']);
 
 Route::get('/pets', [PetController::class, 'index']);
 Route::post('/pets', [PetController::class, 'store']);
+
+Route::get('/appointments', [AppointmentController::class, 'index']);
+

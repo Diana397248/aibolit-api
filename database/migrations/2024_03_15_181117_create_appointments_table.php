@@ -27,7 +27,12 @@ return new class extends Migration {
             $table->unsignedBigInteger('client_id')->index();
             $table->foreign('client_id')->references('id')->on('users');
 
-            //todo pet_id vet_id
+            $table->unsignedBigInteger('pet_id')->index();
+            $table->foreign('pet_id')->references('id')->on('pets');
+
+            $table->unsignedBigInteger('vet_id')->index();
+            $table->foreign('vet_id')->references('id')->on('vets');
+
 
         });
     }

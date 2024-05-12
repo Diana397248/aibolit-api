@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AppointmentResource;
 use App\Models\Appointment;
 use App\Http\Requests\StoreAppointmentRequest;
 use App\Http\Requests\UpdateAppointmentRequest;
@@ -13,7 +14,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        //
+        return AppointmentResource::collection(Appointment::all());
     }
 
     /**

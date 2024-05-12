@@ -15,11 +15,14 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Александр Александрович П',
+            'img' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOm9CWX8P0ae02Wbc1rTdIDR7LWFoDIYTVUBadjpTSKQ&s',
+            'email' => 'alexandr@example.com',
         ]);
         $this->call([
-            PetSeeder::class
+            PetSeeder::class,
+            VetSeeder::class,
+            AppointmentSeeder::class,
         ]);
     }
 }
